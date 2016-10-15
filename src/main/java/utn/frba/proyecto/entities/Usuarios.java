@@ -17,6 +17,10 @@ public class Usuarios {
 	private String email;
 	private boolean admin;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "marca_id")
+	private Marcas marcas;
+
 	public Usuarios() {}
 	public Usuarios(String nombre, String apellido, String password, String email, boolean admin) {
 		this.nombre = nombre;
@@ -72,6 +76,12 @@ public class Usuarios {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public Marcas getMarcas() {
+		return marcas;
+	}
+	public void setMarcas(Marcas marcas) {
+		this.marcas = marcas;
 	}
 
 }
